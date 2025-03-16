@@ -1,0 +1,7 @@
+<h1>Property: {{ name }}</h1>
+<h3>Signal: {{ nameSignal() }}</h3>
+
+<button (click)="changeName()">Property</button>
+<button (click)="changeNameSignal()">Signal</button>
+
+<app-title [title]="nameSignal()" />
