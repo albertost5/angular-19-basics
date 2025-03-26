@@ -1,0 +1,31 @@
+<!-- Text interpolation -->
+<p>Name: {{ name }}</p>
+
+<!-- Native element properties -->
+<button [disabled]="isDisabled()">Disabled</button>
+
+<!-- Component -->
+<app-title [title]="isDisabled().toString()" />
+
+<!-- Directive properties -->
+<img [ngSrc]="profilePhotoUrl"
+     alt="The current user's url: {{profilePhotoUrl}}"
+     width="320"
+     height="240"
+     priority
+>
+
+<!-- CSS class -->
+<ul [class]="listClasses">Hello world!</ul>
+<section [class]="sectionClasses">Hello world!</section>
+<button [class]="buttonClasses">Hello world!</button>
+
+  <!-- Combines all of the classes in the rendered result -->
+<ul class="list" [class]="listClasses" [class.expanded]="isExpanded">
+  Hello world!
+</ul>
+
+<!-- CSS style properties -->
+<ul [style.display]="isExpanded ? 'flex' : 'none'">Hello world flex!</ul>
+<ul [style]="listStyles">Hello world!</ul>
+<ul [style]="listStylesObject">Hello world!</ul>

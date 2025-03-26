@@ -1,0 +1,9 @@
+<!--Two-way binding with form controls-->
+<h2>Hello {{ firstName }}!</h2>
+<input type="text" [(ngModel)]="firstName" />
+
+<!--Two-way binding between components-->
+  <!--AppComponent is responsible for setting the initial count state, but the logic for updating and
+  rendering the UI for the counter primarily resides inside its child CounterComponent.-->
+<h1>Counter: {{ initialCount }}</h1>
+<app-counter [(count)]="initialCount"></app-counter>
