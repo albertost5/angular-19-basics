@@ -1,5 +1,6 @@
 import {Routes} from '@angular/router';
 import {LifeCycleComponent} from './pages/life-cycle/life-cycle.component';
+import {ControlFlowComponent} from './pages/control-flow/control-flow.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +14,10 @@ export const routes: Routes = [
       { path: 'two-way', loadComponent: () => import('./pages/binding/two-way/two-way.component') },
       { path: '**', redirectTo: 'one-way' }
     ]
+  },
+  {
+    path: 'control-flow',
+    component: ControlFlowComponent,
   },
   {
     path: '',

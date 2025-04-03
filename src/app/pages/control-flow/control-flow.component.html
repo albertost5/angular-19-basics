@@ -1,0 +1,25 @@
+<button (click)="onShowElement()">Toggle message</button>
+
+@if( isVisible() ) {
+  <p>Hello world!</p>
+}
+
+<pre>{{ isVisible() }}</pre>
+
+<ul>
+  @for (character of characters(); track character.id; let idx = $index) {
+    <li>{{ idx + 1 }} - {{ character.name }}</li>
+  }
+</ul>
+
+@switch (userPermissions()) {
+  @case ('ADMIN') {
+    <p>ADMIN</p>
+  }
+  @case ('SUPER_ADMIN') {
+    <p>SUPER_ADMIN</p>
+  }
+  @default {
+    <p>USER</p>
+  }
+}
