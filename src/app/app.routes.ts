@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 import {LifeCycleComponent} from './pages/life-cycle/life-cycle.component';
 import {ControlFlowComponent} from './pages/control-flow/control-flow.component';
+import {InputOutputComponent} from './pages/input-output/input-output.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,10 @@ export const routes: Routes = [
   {
     path: 'control-flow',
     component: ControlFlowComponent,
+  },
+  {
+    path: 'input-output',
+    component: InputOutputComponent,
   },
   {
     path: '',
