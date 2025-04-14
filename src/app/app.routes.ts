@@ -3,6 +3,7 @@ import {LifeCycleComponent} from './pages/life-cycle/life-cycle.component';
 import {ControlFlowComponent} from './pages/control-flow/control-flow.component';
 import {InputOutputComponent} from './pages/input-output/input-output.component';
 import {PipesComponent} from './pages/pipes/pipes.component';
+import {CustomPipesComponent} from './pages/custom-pipes/custom-pipes.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
   {
     path: 'pipes',
     component: PipesComponent,
+  },
+  {
+    path: 'custom-pipes',
+    component: CustomPipesComponent,
   },
   {
     path: '',

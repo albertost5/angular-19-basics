@@ -2,7 +2,7 @@
 <p>Name: {{ name }}</p>
 
 <!-- Native element properties -->
-<button [disabled]="isDisabled()">Disabled</button>
+<button class="btn btn-primary" [disabled]="isDisabled()">Disabled</button>
 
 <!-- Component -->
 <app-title [title]="isDisabled().toString()" />
@@ -18,7 +18,7 @@
 <!-- CSS class -->
 <ul [class]="listClasses">Hello world!</ul>
 <section [class]="sectionClasses">Hello world!</section>
-<button [class]="buttonClasses">Hello world!</button>
+<button class="btn btn-primary" [class]="buttonClasses">Hello world!</button>
 
   <!-- Combines all of the classes in the rendered result -->
 <ul class="list" [class]="listClasses" [class.expanded]="isExpanded">

@@ -19,10 +19,10 @@
 
 <!-- UNCOMMON PIPES -->
 <hr />
-<button (click)="toggleClient()">Toggle client</button>
+<button class="btn btn-primary" (click)="toggleClient()">Toggle client</button>
 <p>Hello {{ client().gender | i18nSelect:invitationMap }} {{ client().name }}</p>
 
-<button (click)="deleteClient()" [disabled]="clients().length === 0">Delete client</button>
+<button class="btn btn-primary" (click)="deleteClient()" [disabled]="clients().length === 0">Delete client</button>
 <p>{{ clients().length | i18nPlural:clientsMap() }}</p>
 
 
