@@ -2,6 +2,7 @@ import {Routes} from '@angular/router';
 import {LifeCycleComponent} from './pages/life-cycle/life-cycle.component';
 import {ControlFlowComponent} from './pages/control-flow/control-flow.component';
 import {InputOutputComponent} from './pages/input-output/input-output.component';
+import {PipesComponent} from './pages/pipes/pipes.component';
 
 export const routes: Routes = [
   {
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'input-output',
     component: InputOutputComponent,
+  },
+  {
+    path: 'pipes',
+    component: PipesComponent,
   },
   {
     path: '',

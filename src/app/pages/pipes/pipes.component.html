@@ -1,0 +1,28 @@
+<!-- COMMON PIPES -->
+<p><b>Lowercase Pipe:</b> {{ nameUpper() | lowercase }}</p>
+<p><b>Uppercase Pipe:</b> {{ nameLower() | uppercase }}</p>
+<p><b>Title Case Pipe:</b> {{ fullName() | titlecase }}</p>
+<p><b>Decimal Pipe (es):</b> {{ numberA() | number:'1.2-2' }}</p>
+<p><b>Decimal Pipe (en):</b> {{ numberA() | number:'1.2-2':'en-US' }}</p>
+<p><b>Percent Pipe:</b> {{ numberB() | percent }}</p>
+<p><b>Percent Pipe:</b> {{ numberB() | percent:'1.2-2' }}</p>
+<p><b>Currency Pipe:</b> {{ numberA() | currency: 'EUR':'symbol':'1.2-4' }}</p>
+
+<!-- DATE PIPE-->
+<hr/>
+<h5>{{ customDate() }}</h5>
+<p><b>Date Pipe:</b> {{ customDate() | date }}</p>
+<p><b>Short:</b> {{ customDate() | date:'short' }}</p>
+<p><b>Full Time:</b> {{ customDate() | date:'fullTime' }}</p>
+<p><b>Format Date (dd-MM-yyyy):</b> {{ customDate() | date:'dd-MM-yyyy' }}</p>
+<p><b>Format Date (HH:mm:ss):</b> {{ customDate() | date:'HH:mm:ss' }}</p>
+
+<!-- UNCOMMON PIPES -->
+<hr />
+<button (click)="toggleClient()">Toggle client</button>
+<p>Hello {{ client().gender | i18nSelect:invitationMap }} {{ client().name }}</p>
+
+<button (click)="deleteClient()" [disabled]="clients().length === 0">Delete client</button>
+<p>{{ clients().length | i18nPlural:clientsMap() }}</p>
+
+
