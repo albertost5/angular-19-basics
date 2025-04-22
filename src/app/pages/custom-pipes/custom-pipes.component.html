@@ -5,11 +5,13 @@
 <hr />
 <section>
   <h1>Custom Pipes</h1>
+  <h3>Sort by: {{ sortBy() | titlecase }}</h3>
+  
   <div class="d-flex gap-2 justify-content-end w-100">
-    <button class="btn btn-primary">Name</button>
-    <button class="btn btn-danger">Can Fly</button>
-    <button class="btn btn-warning">Color</button>
-    <button class="btn btn-secondary">Creator</button>
+    <button class="btn btn-primary" (click)="this.sortBy.set('name')">Name</button>
+    <button class="btn btn-danger" (click)="this.sortBy.set('canFly')">Can Fly</button>
+    <button class="btn btn-warning" (click)="this.sortBy.set('color')">Color</button>
+    <button class="btn btn-secondary" (click)="this.sortBy.set('creator')">Creator</button>
   </div>
 </section>
 
@@ -27,13 +29,22 @@
     </thead>
     <tbody>
     <!-- rows -->
-    @for (hero of heroes(); track hero.id) {
+    @for (hero of heroes() | heroSortBy:sortBy(); track hero.id) {
       <tr>
         <th>{{ hero.id }}</th>
         <td>{{ hero.name }}</td>
-        <td>{{ hero.canFly }}</td>
-        <td>{{ hero.color }}</td>
-        <td>{{ hero.creator }}</td>
+        <td>
+          <small
+            [class.text-success]="hero.canFly"
+            [class.text-warning]="!hero.canFly">
+            {{ hero.canFly | canFly }}
+          </small>
+        </td>
+        <td [style.color]="hero.color | heroTextColor">{{ hero.color | heroColor | titlecase }}</td>
+        <td
+          [class.text-primary]="hero.creator === 0"
+          [class.text-danger]="hero.creator === 1"
+        >{{ hero.creator | heroCreator | titlecase }}</td>
       </tr>
     }
     </tbody>
