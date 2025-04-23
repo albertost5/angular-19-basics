@@ -9,7 +9,6 @@ import {heroes} from '../data/heroes.data';
 export class HeroSortByPipe implements PipeTransform {
 
   transform(value: Hero[], sortBy: keyof Hero | null): Hero[] {
-    console.log('sortBy => ', sortBy)
     switch(sortBy) {
       case 'name':
         return heroes.sort( (a,b) => (a.name.localeCompare(b.name)));

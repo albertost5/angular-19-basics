@@ -8,6 +8,7 @@ import {HeroCreatorPipe} from '../../pipes/hero-creator.pipe';
 import {TitleCasePipe} from '@angular/common';
 import {HeroSortByPipe} from '../../pipes/hero-sort-by.pipe';
 import {Hero} from '../../interfaces/hero.interface';
+import {HeroFilterPipe} from '../../pipes/hero-filter.pipe';
 
 @Component({
   imports: [
@@ -18,6 +19,7 @@ import {Hero} from '../../interfaces/hero.interface';
     HeroCreatorPipe,
     TitleCasePipe,
     HeroSortByPipe,
+    HeroFilterPipe,
   ],
   templateUrl: './custom-pipes.component.html',
   standalone: true,
