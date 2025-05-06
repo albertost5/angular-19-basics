@@ -35,6 +35,28 @@ export const routes: Routes = [
     component: CustomPipesComponent,
   },
   {
+    path: 'reactive-forms',
+    children: [
+      {
+        path: 'auth',
+        loadChildren: () => import('./pages/reactive-forms/auth/auth.routes').then(m => m.authRoutes)
+      },
+      {
+        path: 'reactive',
+        loadChildren: () => import('./pages/reactive-forms/reactive/reactive.routes').then(m => m.reactiveRoutes)
+      },
+      {
+        path: 'country',
+        loadChildren: () => import('./pages/reactive-forms/country/country.routes').then(m => m.countryRoutes)
+      },
+      {
+        path: '',
+        redirectTo: 'reactive',
+        pathMatch: 'full'
+      },
+    ]
+  },
+  {
     path: '',
     redirectTo: 'life-cycle',
     pathMatch: 'full'
