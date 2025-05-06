@@ -4,6 +4,7 @@ import {ControlFlowComponent} from './pages/control-flow/control-flow.component'
 import {InputOutputComponent} from './pages/input-output/input-output.component';
 import {PipesComponent} from './pages/pipes/pipes.component';
 import {CustomPipesComponent} from './pages/custom-pipes/custom-pipes.component';
+import {ReactiveFormsLayoutComponent} from './pages/reactive-forms/reactive-forms-layout.component';
 
 export const routes: Routes = [
   {
@@ -36,10 +37,12 @@ export const routes: Routes = [
   },
   {
     path: 'reactive-forms',
+    component: ReactiveFormsLayoutComponent,
     children: [
       {
         path: 'auth',
-        loadChildren: () => import('./pages/reactive-forms/auth/auth.routes').then(m => m.authRoutes)
+        // export default in authRoutes
+        loadChildren: () => import('./pages/reactive-forms/auth/auth.routes')
       },
       {
         path: 'reactive',

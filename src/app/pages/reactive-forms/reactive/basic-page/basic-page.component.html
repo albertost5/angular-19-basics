@@ -1,93 +1,90 @@
-<div class="p-3">
-  <h2>Reactive: Basic</h2>
+<h2>Reactive: Basic</h2>
 
-  <hr>
+<hr>
 
-  <div class="row">
-    <div class="col">
+<div class="row">
+  <div class="col">
 
-      <form autocomplete="off">
+    <form autocomplete="off">
 
-        <!-- Product -->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Product</label>
-          <div class="col-sm-9">
+      <!-- Product -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Product</label>
+        <div class="col-sm-9">
 
-            <input type="text"
-                   class="form-control"
-                   placeholder="Product's name">
+          <input type="text"
+                 class="form-control"
+                 placeholder="Product's name">
 
-            <span class="form-text text-danger">
-                          <!-- Must be 3 words -->
-                          error message
-                      </span>
-          </div>
+          <span class="form-text text-danger">
+                        <!-- Must be 3 words -->
+                        error message
+                    </span>
         </div>
+      </div>
 
-        <!-- Price-->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Price</label>
-          <div class="col-sm-9">
-            <input type="number"
-                   class="form-control"
-                   placeholder="Product's price">
-            <span class="form-text text-danger">
-              Price must be 0 or greater
-            </span>
-          </div>
+      <!-- Price-->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Price</label>
+        <div class="col-sm-9">
+          <input type="number"
+                 class="form-control"
+                 placeholder="Product's price">
+          <span class="form-text text-danger">
+            Price must be 0 or greater
+          </span>
         </div>
+      </div>
 
-        <!-- Stock -->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Stock</label>
-          <div class="col-sm-9">
-            <input type="number"
-                   class="form-control"
-                   placeholder="Product's stock">
+      <!-- Stock -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Stock</label>
+        <div class="col-sm-9">
+          <input type="number"
+                 class="form-control"
+                 placeholder="Product's stock">
 
-            <span class="form-text text-danger">
-              Stock must be 0 or greater
-            </span>
-          </div>
+          <span class="form-text text-danger">
+            Stock must be 0 or greater
+          </span>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="col">
-            <button type="submit"
-                    class="btn btn-primary float-end">
-              Guardar
-            </button>
-          </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit"
+                  class="btn btn-primary float-end">
+            Guardar
+          </button>
         </div>
-      </form>
+      </div>
+    </form>
 
-    </div>
   </div>
+</div>
 
 
 
 
-  <div class="row">
-    <div class="col">
+<div class="row">
+  <div class="col">
 
-      <span>Valid</span>
-      <pre>{{ 'object' | json }}</pre>
+    <span>Valid</span>
+    <pre>{{ 'object' | json }}</pre>
 
-      <span>Pristine</span>
-      <pre>{{ 'object' | json }}</pre>
+    <span>Pristine</span>
+    <pre>{{ 'object' | json }}</pre>
 
-      <span>Touched</span>
-      <pre>{{ 'object' | json }}</pre>
+    <span>Touched</span>
+    <pre>{{ 'object' | json }}</pre>
 
-      <span>Value</span>
-      <pre>{{ 'object' | json }}</pre>
+    <span>Value</span>
+    <pre>{{ 'object' | json }}</pre>
 
-      <span>Price</span>
-      <pre>{{ 'object' | json }}</pre>
+    <span>Price</span>
+    <pre>{{ 'object' | json }}</pre>
 
-      <span>Product</span>
-      <pre>{{ 'object' | json }}</pre>
-    </div>
+    <span>Product</span>
+    <pre>{{ 'object' | json }}</pre>
   </div>
-
 </div>
