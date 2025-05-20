@@ -6,7 +6,8 @@
     "baseUrl": "./",
     "paths": {
       "@components/*": [
-        "src/app/components/*"
+        "src/app/components/*",
+        "src/app/utils/*"
       ]
     },
     "outDir": "./dist/out-tsc",
