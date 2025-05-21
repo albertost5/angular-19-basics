@@ -1,7 +1,7 @@
 <h2>Reactive: <small> Dynamic </small></h2>
 <hr>
 
-<form autocomplete="off" [formGroup]="myForm">
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <!-- Name -->
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Name</label>
@@ -30,6 +30,7 @@
         >
         <button class="btn btn-outline-primary"
                 type="button"
+                (click)="onAddToFavorites()"
         >
           Add
         </button>
@@ -38,35 +39,41 @@
   </div>
 
   <!-- Fav games -->
-  <div class="mb-3 row" formArrayName="favoriteGames">
+  <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Fav</label>
-      <div class="col-sm-9">
-        @for (control of favoriteGames.controls; track idx; let idx = $index) {
+      <div class="col-sm-9" formArrayName="favoriteGames">
+        @for (control of favoriteGames.controls; track control.value; let i = $index) {
           <div class="mb-1">
               <div class="input-group">
-                <input class="form-control" [formControlName]="idx">
+                <input class="form-control" [formControlName]="i">
                 <button class="btn btn-outline-danger"
-                        type="button">
+                        type="button"
+                        (click)="onDeleteFavorite(i)"
+                >
                   Delete
                 </button>
               </div>
-              @if (formUtils.isInvalidFieldInArray(favoriteGames, idx)) {
+              @if (formUtils.isInvalidFieldInArray(favoriteGames, i)) {
                 <span class="form-text text-danger">
-                 {{ formUtils.getFieldErrorInArray(favoriteGames, idx) }}
+                 {{ formUtils.getFieldErrorInArray(favoriteGames, i) }}
                 </span>
               }
           </div>
         }
       </div>
-
+      @if (formUtils.isInvalidField(myForm, "favoriteGames")) {
+        <span class="text-danger">
+          {{ formUtils.getFieldError(myForm, "favoriteGames") }}
+        </span>
+      }
   </div>
 
   <div class="row">
     <div class="col-sm-12">
       <button type="submit"
               class="btn btn-primary float-end"
+              [disabled]="myForm.invalid"
       >
-        <!-- [disabled]="myForm.invalid" -->
         Save
       </button>
     </div>
@@ -75,6 +82,10 @@
 
 <span>Valid</span>
 <pre>{{ myForm.valid | json }}</pre>
+<br>
+
+<span>Favorite Games Errors</span>
+<pre>{{ myForm.controls.favoriteGames.errors | json }}</pre>
 <br>
 
 <span>Value</span>
