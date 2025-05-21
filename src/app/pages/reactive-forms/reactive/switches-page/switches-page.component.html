@@ -1,7 +1,7 @@
 <h2>Reactive: Switches</h2>
 <hr>
 
-<form autocomplete="off">
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <!-- Radio -->
   <div class="row mb-3">
     <label class="col-sm-3 col-form-label">Gender</label>
@@ -9,6 +9,7 @@
       <div class="form-check">
         <input class="form-check-input"
                type="radio"
+               formControlName="gender"
                value="M"
                id="maleRadio">
         <label class="form-check-label" for="maleRadio">
@@ -19,12 +20,18 @@
       <div class="form-check">
         <input class="form-check-input"
                type="radio"
+               formControlName="gender"
                value="F"
                id="femaleRadio">
         <label class="form-check-label" for="femaleRadio">
           Female
         </label>
       </div>
+      @if (myForm.controls.gender.errors) {
+        <span class="text-danger">
+          {{ formUtils.getFieldError(myForm,"gender")}}
+        </span>
+      }
     </div>
   </div>
 
@@ -36,6 +43,7 @@
       <div class="form-check form-switch mt-2">
         <input class="form-check-input"
                type="checkbox"
+               formControlName="notifications"
                id="flexSwitchCheckChecked">
         <label class="form-check-label" for="flexSwitchCheckChecked">I want to receive communications</label>
       </div>
@@ -49,14 +57,17 @@
       <div class="form-check">
         <input class="form-check-input"
                type="checkbox"
+               formControlName="terms"
                id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Terms and conditions of use
         </label>
       </div>
-      <span class="form-text text-danger">
-        You must accept the terms of use
-      </span>
+      @if (myForm.controls.terms.errors) {
+        <span class="form-text text-danger">
+          You must accept the terms of use
+        </span>
+      }
     </div>
   </div>
 
@@ -64,7 +75,9 @@
   <div class="row">
     <div class="col">
       <button class="btn btn-primary float-end"
-              type="submit">
+              type="submit"
+              [disabled]="!myForm.valid"
+      >
         Save
       </button>
     </div>
@@ -73,15 +86,15 @@
 
 
 <h5>Form value</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.value | json }}</pre>
 <br>
 
 <h5>Gender</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.controls.gender.value | json }}</pre>
 <br>
 
 <h5>Valid</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.valid | json }}</pre>
 
-<!-- <h5>Terms</h5> -->
-<!-- <pre>{{ myForm.controls?.terms?.errors | json }}</pre> -->
+ <h5>Terms</h5>
+ <pre>{{ myForm.controls.terms.errors | json }}</pre>
