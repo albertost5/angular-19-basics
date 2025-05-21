@@ -1,6 +1,10 @@
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 
 export class FormUtils {
+  static namePattern = '([a-zA-Z]+) ([a-zA-Z]+)';
+  static emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
+  static notOnlySpacesPattern = '^[a-zA-Z0-9]+$';
+
   static isInvalidField(form: FormGroup, fieldName: string): boolean {
     return !!form.get(fieldName)?.errors && !!form.get(fieldName)?.touched;
   }
@@ -13,7 +17,11 @@ export class FormUtils {
       case 'minlength':
         return `The min length is ${formControlErrors!['minlength']['requiredLength']}`;
       case 'min':
-        return `The min value is ${formControlErrors!['min']['min']}`
+        return `The min value is ${formControlErrors!['min']['min']}`;
+      case 'email':
+        return 'The field email is required';
+      case 'pattern':
+        return fieldName === 'email' ? 'Introduce a valid email format' : 'Introduce a valid username format';
     }
     return '';
   }
