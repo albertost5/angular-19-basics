@@ -1,4 +1,4 @@
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors} from '@angular/forms';
 
 export class FormUtils {
   static namePattern = '([a-zA-Z]+) ([a-zA-Z]+)';
@@ -36,5 +36,14 @@ export class FormUtils {
         return `The field is required`;
     }
     return '';
+  }
+
+  static isEqualPasswords(field1: string, field2: string) {
+    return (formGroup: AbstractControl): ValidationErrors|null => {
+      const password = formGroup.get(field1)?.value;
+      const confirmPassword = formGroup.get(field2)?.value;
+
+      return password === confirmPassword ? null : {isEqualPasswords: false}
+    }
   }
 }

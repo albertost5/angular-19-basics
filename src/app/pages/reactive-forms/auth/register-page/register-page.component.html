@@ -86,6 +86,11 @@
             {{ formUtils.getFieldError(myForm, "confirmPassword") }}
           </span>
           }
+          @if (myForm.errors && myForm.controls.confirmPassword.touched) {
+            <span class="text-danger">
+              Password must match.
+            </span>
+          }
         </div>
       </div>
 

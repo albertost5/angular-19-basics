@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {JsonPipe} from '@angular/common';
-import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule, ValidationErrors, Validators} from '@angular/forms';
 import {FormUtils} from '@components/form-utils';
 
 @Component({
@@ -27,6 +27,8 @@ export class RegisterPageComponent {
       ],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+    }, {
+      validators: this.formUtils.isEqualPasswords('password', 'confirmPassword')
     });
 
 
