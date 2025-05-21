@@ -1,5 +1,13 @@
 import {AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors} from '@angular/forms';
 
+async function sleep() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true)
+    }, 2500)
+  })
+}
+
 export class FormUtils {
   static namePattern = '([a-zA-Z]+) ([a-zA-Z]+)';
   static emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
@@ -22,6 +30,10 @@ export class FormUtils {
         return 'The field email is required';
       case 'pattern':
         return fieldName === 'email' ? 'Introduce a valid email format' : 'Introduce a valid username format';
+      case 'emailTaken':
+        return 'The email is taken, please introduce a different email.'
+      case 'adminNotAllowed':
+        return 'The username administrator is not allowed.'
     }
     return '';
   }
@@ -45,5 +57,25 @@ export class FormUtils {
 
       return password === confirmPassword ? null : {isEqualPasswords: false}
     }
+  }
+
+  static async checkBackendResponse(formControl: AbstractControl): Promise<ValidationErrors | null> {
+    await sleep();
+    const formValue = formControl.value;
+    if ( formValue === 'hola@mundo.com' ) {
+      return {
+        emailTaken: true
+      }
+    }
+    return null;
+  }
+
+  static adminNotAllowed(control: AbstractControl): ValidationErrors | null {
+    if (control.value.toLowerCase() === 'administrator') {
+      return {
+        adminNotAllowed: true
+      }
+    }
+    return null;
   }
 }
