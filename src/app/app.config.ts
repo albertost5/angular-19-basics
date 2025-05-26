@@ -5,6 +5,7 @@ import {routes} from './app.routes';
 
 import localeEs from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
+import {provideHttpClient} from '@angular/common/http';
 
 registerLocaleData(localeEs, 'es')
 
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: LOCALE_ID,
       useValue: 'es',
-    }
+    },
+    provideHttpClient()
   ]
 };

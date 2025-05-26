@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {JsonPipe} from '@angular/common';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {FormUtils} from '@components/form-utils';
+import {FormUtils} from '@utils/form-utils';
 
 
 @Component({
